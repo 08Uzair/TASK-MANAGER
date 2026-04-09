@@ -33,7 +33,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-ink-950 flex flex-col">
-      {/* Ambient gradient */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0"
@@ -44,7 +43,6 @@ export default function App() {
       />
 
       <main className="relative flex-1 w-full max-w-2xl mx-auto px-4 py-12 sm:py-16">
-        {/* Header */}
         <header className="mb-10">
           <div className="flex items-end justify-between">
             <div>
@@ -71,22 +69,18 @@ export default function App() {
           </div>
         </header>
 
-        {/* Global error */}
         {(error || globalError) && (
           <div className="mb-4 bg-red-500/10 border border-red-500/30 text-red-400 rounded-lg px-4 py-3 text-sm font-body">
             {error || globalError}
           </div>
         )}
 
-        {/* Add Task form */}
         <TaskForm onAdd={handleAdd} />
 
-        {/* Filter */}
         {tasks.length > 0 && (
           <FilterBar filter={filter} onChange={setFilter} counts={counts} />
         )}
 
-        {/* Loading state */}
         {loading ? (
           <div className="flex flex-col items-center py-16 gap-3">
             <div className="w-6 h-6 border-2 border-acid border-t-transparent rounded-full animate-spin" />

@@ -63,7 +63,6 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
         ${busy ? 'pointer-events-none' : ''}
       `}
     >
-      {/* Checkbox */}
       <button
         onClick={handleToggle}
         disabled={busy}
@@ -83,7 +82,6 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
         )}
       </button>
 
-      {/* Content */}
       <div className="flex-1 min-w-0">
         {editing ? (
           <form onSubmit={handleEditSubmit} className="flex gap-2">
@@ -123,7 +121,6 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
         {error && <p className="mt-1 text-red-400 text-xs">{error}</p>}
       </div>
 
-      {/* Actions */}
       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0">
         {!editing && (
           <button
@@ -149,7 +146,6 @@ export default function TaskItem({ task, onToggle, onDelete, onEdit }) {
         </button>
       </div>
 
-      {/* Busy overlay */}
       {busy && (
         <div className="absolute inset-0 rounded-xl bg-ink-900/40 flex items-center justify-center">
           <div className="w-4 h-4 border-2 border-acid border-t-transparent rounded-full animate-spin" />

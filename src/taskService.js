@@ -1,7 +1,3 @@
-// taskService.js
-// Simulates a REST API using localStorage as persistence layer.
-// All methods are async to mirror real API behaviour.
-
 import { v4 as uuidv4 } from 'uuid'
 
 const STORAGE_KEY = 'task_manager_tasks'
@@ -19,18 +15,15 @@ function save(tasks) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
 }
 
-// Simulate network delay for realistic UX
 function delay(ms = 120) {
   return new Promise((res) => setTimeout(res, ms))
 }
 
-// GET /tasks
 export async function getTasks() {
   await delay()
   return load()
 }
 
-// POST /tasks
 export async function createTask(title) {
   await delay()
   const trimmed = title?.trim()
@@ -50,7 +43,6 @@ export async function createTask(title) {
   return task
 }
 
-// PATCH /tasks/:id  — toggles or sets completed; optionally updates title
 export async function updateTask(id, patch) {
   await delay()
   const tasks = load()
@@ -69,7 +61,6 @@ export async function updateTask(id, patch) {
   return tasks[idx]
 }
 
-// DELETE /tasks/:id
 export async function deleteTask(id) {
   await delay()
   const tasks = load()
